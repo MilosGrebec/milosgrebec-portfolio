@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import portrait from './assets/milos-grebec.webp'
 import angelus from './assets/angelus.webp'
 
@@ -170,6 +171,65 @@ function Contact() {
   )
 }
 
+function ThemeToggle() {
+  const root = document.documentElement
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = root.dataset.theme
+    return savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+
+  useEffect(() => {
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+    function followSystem() {
+      if (!root.dataset.theme) setIsDark(systemTheme.matches)
+    }
+
+    followSystem()
+    systemTheme.addEventListener('change', followSystem)
+    return () => systemTheme.removeEventListener('change', followSystem)
+  }, [root])
+
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', getComputedStyle(root).backgroundColor)
+  }, [isDark, root])
+
+  function toggleTheme() {
+    const nextTheme = isDark ? 'light' : 'dark'
+    root.dataset.theme = nextTheme
+    setIsDark(nextTheme === 'dark')
+
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme)
+    } catch {
+      // The current page still uses the selected theme.
+    }
+  }
+
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      aria-label="Dark mode"
+      aria-pressed={isDark}
+      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      onClick={toggleTheme}
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {isDark ? (
+          <>
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5" />
+          </>
+        ) : (
+          <path d="M20.7 14.1A9 9 0 0 1 9.9 3.3a9 9 0 1 0 10.8 10.8Z" />
+        )}
+      </svg>
+    </button>
+  )
+}
+
 export default function App() {
   return (
     <>
@@ -181,7 +241,10 @@ export default function App() {
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cv mono" href={cv} download>CV <Arrow direction="down" /></a>
+        <div className="header-actions">
+          <a className="header-cv mono" href={cv} download>CV <Arrow direction="down" /></a>
+          <ThemeToggle />
+        </div>
       </header>
 
       <main id="main" tabIndex={-1}>

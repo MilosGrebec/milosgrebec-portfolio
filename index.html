@@ -10,6 +10,14 @@
     <meta property="og:description" content="Selected client work and independent software projects by Miloš Grebec.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <title>Miloš Grebec — Full-Stack Developer</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('portfolio-theme')
+        if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme
+      } catch {
+        // Use the system theme when storage is unavailable.
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

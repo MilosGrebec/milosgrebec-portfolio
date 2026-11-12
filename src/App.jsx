@@ -7,8 +7,6 @@ const linkedIn = 'https://www.linkedin.com/in/milo%C5%A1-grebec-0117862a6/'
 const cv = '/Milos_Grebec_CV.pdf'
 
 const earlierProjects = [
-  { name: 'SoftWare Media', description: 'Social web app with profiles, posts and friends.', stack: 'React / Node.js', repo: 'SoftWareMedia' },
-  { name: 'BerBot', description: 'Arduino robot controlled from a mobile app.', stack: 'Arduino / React Native', repo: 'BerBot' },
   { name: 'Bible Quotes', description: 'Mobile app with a different Bible verse each day.', stack: 'React Native', repo: 'Bible-Quotes' },
 ]
 
@@ -200,7 +198,7 @@ export default function App() {
           </div>
           <figure className="portrait">
             <div className="portrait-frame">
-              <img src={portrait} alt="Miloš Grebec" width="840" height="903" />
+              <img src={portrait} alt="Miloš Grebec" width="621" height="960" />
             </div>
             <figcaption className="mono"><span>Based in Serbia</span><span>Remote</span></figcaption>
           </figure>

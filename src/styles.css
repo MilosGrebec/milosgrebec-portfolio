@@ -193,7 +193,7 @@ img { display: block; max-width: 100%; }
   .hero-intro { font-size: 16px; }
   .hero-actions { margin-top: 19px; }
   .portrait { max-width: 430px; justify-self: start; }
-  .portrait img { aspect-ratio: 1.25; }
+  .portrait img { aspect-ratio: 1; }
   .primary-stack { gap: 7px 14px; }
   .stack { column-gap: 11px; }
   .stack li + li::before { display: none; }

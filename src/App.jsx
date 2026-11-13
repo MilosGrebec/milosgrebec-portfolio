@@ -36,19 +36,22 @@ function Stack({ technologies }) {
 function PlatformDiagram() {
   return (
     <figure className="project-art platform-art">
-      <figcaption className="art-caption mono"><span>FIG. 01</span><span>Application architecture</span></figcaption>
-      <div className="architecture" role="img" aria-label="A React interface connects to a Laravel API backed by MySQL. A JavaScript bridge connects the application to EVM contracts.">
-        <div className="flow">
-          <div className="node"><span>React</span><small>Interface</small></div>
-          <span className="connector" />
-          <div className="node node-core"><span>Laravel</span><small>REST API</small></div>
-          <span className="connector" />
-          <div className="node"><span>MySQL</span><small>Data</small></div>
+      <figcaption className="art-caption mono"><span>FIG. 01</span><span>Areas of contribution</span></figcaption>
+      <div className="capability-grid" role="list" aria-label="Work areas on the IQOSYS project">
+        <div className="capability-card" role="listitem">
+          <span className="capability-number mono">01 / PRODUCT</span>
+          <strong>Full-stack development</strong>
+          <span>Web applications & APIs</span>
         </div>
-        <div className="bridge">
-          <div className="node"><span>JavaScript</span><small>Bridge</small></div>
-          <span className="connector vertical" />
-          <div className="node"><span>EVM</span><small>Contracts</small></div>
+        <div className="capability-card" role="listitem">
+          <span className="capability-number mono">02 / WEB3</span>
+          <strong>Smart contracts</strong>
+          <span>Solidity & EVM integration</span>
+        </div>
+        <div className="capability-card" role="listitem">
+          <span className="capability-number mono">03 / DELIVERY</span>
+          <strong>Security & deployment</strong>
+          <span>Testing, releases & DevOps</span>
         </div>
       </div>
     </figure>
@@ -81,20 +84,20 @@ function Work() {
 
       <article className="project">
         <div className="project-copy">
-          <p className="project-label mono">Client work <span>·</span> 2025–2026</p>
-          <h3>B2B software platform</h3>
-          <p className="project-intro">I worked on a European B2B platform, from React admin tools and Laravel APIs to account security and releases.</p>
-          <Stack technologies={['React', 'TypeScript', 'Laravel', 'MySQL', 'Docker']} />
+          <p className="project-label mono">IQOSYS SAS <span>·</span> France <span>·</span> 2025–2026</p>
+          <h3>Full-stack &amp; blockchain development</h3>
+          <p className="project-intro">For IQOSYS, a French B2B software company, I developed application features and Solidity smart contracts, integrated Web3 functionality, and contributed to security, testing and releases.</p>
+          <Stack technologies={['React', 'TypeScript', 'Laravel', 'Solidity', 'Docker']} />
           <details className="project-details">
             <summary>What I worked on <Arrow direction="down" /></summary>
             <ul>
-              <li>Admin workflows and REST endpoints with role-based permissions.</li>
-              <li>Authenticator app support and authorization checks for sensitive actions.</li>
-              <li>Full-text search for published PDFs, with text extraction running in the background.</li>
-              <li>EVM smart contract integration through a JavaScript bridge with short-lived authentication tokens.</li>
-              <li>Testing, release preparation and Docker deployments on Linux with Nginx.</li>
+              <li>Built and improved React/TypeScript and Laravel features, REST APIs, administrative workflows and permission-based access.</li>
+              <li>Developed Solidity smart contracts for token-related business operations, including escrow, access control and multisignature approvals.</li>
+              <li>Integrated EVM-based functionality into backend services and frontend user workflows.</li>
+              <li>Worked on authentication, security checks, automated testing and bug fixes.</li>
+              <li>Supported releases and deployments with Docker, Linux and Nginx, working directly with the client.</li>
             </ul>
-            <p className="client-note">The client and source code are confidential.</p>
+            <p className="client-note">Client reference available upon request. Source code and internal system details remain private.</p>
           </details>
         </div>
         <PlatformDiagram />
@@ -139,7 +142,7 @@ function About() {
       </div>
       <div className="about-grid">
         <div className="about-copy">
-          <p>I’m a freelance developer from Serbia. I work on web applications that have real business rules behind them, from the forms people use to the permissions and APIs that make those workflows possible.</p>
+          <p>I’m a freelance developer from Serbia working across React/Laravel applications and Solidity-based integrations. My commercial work with IQOSYS included product features, smart contracts, security improvements, testing and deployment support.</p>
           <p>I study Applied Software Engineering at the Faculty of Technical Sciences, University of Novi Sad.</p>
           <a className="text-link" href={cv} download>Download CV <Arrow direction="down" /></a>
         </div>
@@ -147,7 +150,8 @@ function About() {
           <div><dt className="mono">Frontend</dt><dd>React, TypeScript, JavaScript</dd></div>
           <div><dt className="mono">Backend</dt><dd>Laravel, PHP, Node.js, MySQL, Redis</dd></div>
           <div><dt className="mono">Deployment</dt><dd>Docker, Linux, Nginx, Git</dd></div>
-          <div><dt className="mono">Also used</dt><dd>Python, TensorFlow, Solidity, C, C#</dd></div>
+          <div><dt className="mono">Blockchain</dt><dd>Solidity, EVM, smart-contract testing</dd></div>
+          <div><dt className="mono">Also used</dt><dd>Python, TensorFlow, C, C#</dd></div>
         </dl>
       </div>
     </section>
@@ -253,7 +257,7 @@ export default function App() {
             <p className="hero-kicker mono"><span className="status-dot" /> Available for freelance projects</p>
             <h1 id="hero-title">Miloš<br />Grebec<span>.</span></h1>
             <p className="hero-role">Freelance full-stack developer</p>
-            <p className="hero-intro">I build React interfaces and Laravel APIs for business web applications.</p>
+            <p className="hero-intro">I build web applications with React and Laravel, with experience developing Solidity smart contracts and Web3 integrations.</p>
             <div className="hero-actions">
               <a className="button" href="#work">See my work <Arrow direction="down" /></a>
               <a className="text-link" href={'mailto:' + email}>Email me <Arrow /></a>
@@ -270,7 +274,7 @@ export default function App() {
         <div className="shell">
           <div className="primary-stack">
             <span className="mono">Core stack</span>
-            <Stack technologies={['React', 'TypeScript', 'Laravel', 'MySQL', 'Docker']} />
+            <Stack technologies={['React', 'TypeScript', 'Laravel', 'Solidity', 'Docker']} />
           </div>
         </div>
         <Work />

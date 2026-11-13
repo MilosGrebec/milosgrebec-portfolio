@@ -88,6 +88,7 @@ function Work() {
           <h3>Full-stack &amp; blockchain development</h3>
           <p className="project-intro">For IQOSYS, a French B2B software company, I developed application features and Solidity smart contracts, integrated Web3 functionality, and contributed to security, testing and releases.</p>
           <Stack technologies={['React', 'TypeScript', 'Laravel', 'Solidity', 'Docker']} />
+          <a className="text-link" href="https://iqosys.com" target="_blank" rel="noopener noreferrer">Visit iqosys.com <Arrow /></a>
           <details className="project-details">
             <summary>What I worked on <Arrow direction="down" /></summary>
             <ul>
